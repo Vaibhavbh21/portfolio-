@@ -6,14 +6,20 @@ import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Blog from './pages/Blog';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
+import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-dark-900 text-white relative overflow-hidden">
-        {/* Animated Background Effects */}
-        <div className="fixed inset-0 cyber-pattern opacity-30 pointer-events-none"></div>
-        <div className="fixed inset-0 cyber-grid opacity-20 pointer-events-none"></div>
+        {/* Advanced Background Effects */}
+        <ParticleBackground />
+        <div className="fixed inset-0 cyber-pattern opacity-30 pointer-events-none z-0"></div>
+        <div className="fixed inset-0 cyber-grid opacity-20 pointer-events-none z-0"></div>
+        
+        {/* Custom Cursor */}
+        <CustomCursor />
         
         <Navbar />
         
