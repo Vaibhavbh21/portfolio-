@@ -6,22 +6,9 @@ const Portfolio = () => {
   const [filter, setFilter] = useState('all');
 
   const projects = [
-    // Add your projects here
-    // Example structure:
-    // {
-    //   id: 1,
-    //   title: "Project Title",
-    //   category: "Data Analytics",
-    //   description: "Project description",
-    //   image: "project-image",
-    //   tags: ["Python", "SQL", "Power BI"],
-    //   link: "#",
-    //   github: "#"
-    // },
   ];
 
-  // Add your project categories here
-  const categories = ['all']; // Add more categories like 'Data Analytics', 'Machine Learning', etc.
+  const categories = ['all'];
 
   const filteredProjects = filter === 'all' 
     ? projects 
@@ -106,9 +93,6 @@ const Portfolio = () => {
                   I'm working on adding my portfolio projects here. Check back soon to see my latest work in data analytics, 
                   data science, and AI/ML!
                 </p>
-                <p className="text-gray-500 text-sm">
-                  You can add your projects by editing the projects array in Portfolio.js
-                </p>
               </motion.div>
             </div>
           ) : (
@@ -122,7 +106,6 @@ const Portfolio = () => {
                 className="group relative"
               >
                 <div className="relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl overflow-hidden h-full hover:border-neon-orange/50 transition-all duration-300">
-                  {/* Project Image Placeholder */}
                   <div className="relative h-48 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
                     <div className="absolute inset-0 flex items-center justify-center">
                       {getCategoryIcon(project.category)}
