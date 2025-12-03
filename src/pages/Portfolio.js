@@ -6,13 +6,25 @@ const Portfolio = () => {
   const [filter, setFilter] = useState('all');
 
   const projects = [
+    // yahan baad me apne projects add karna
+    // example:
+    // {
+    //   id: 1,
+    //   title: 'Sales Dashboard',
+    //   description: 'Built an interactive dashboard in Power BI',
+    //   category: 'Data Analytics',
+    //   tags: ['Power BI', 'SQL', 'Excel'],
+    //   link: 'https://your-live-link.com',
+    //   github: 'https://github.com/your-repo'
+    // }
   ];
 
   const categories = ['all'];
 
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+  const filteredProjects =
+    filter === 'all'
+      ? projects
+      : projects.filter(project => project.category === filter);
 
   const getCategoryIcon = (category) => {
     switch (category) {
@@ -90,7 +102,7 @@ const Portfolio = () => {
                 <Code2 className="w-16 h-16 text-neon-purple mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-4">Projects Coming Soon</h3>
                 <p className="text-gray-400 mb-6">
-                  I'm working on adding my portfolio projects here. Check back soon to see my latest work in data analytics, 
+                  I&apos;m working on adding my portfolio projects here. Check back soon to see my latest work in data analytics, 
                   data science, and AI/ML!
                 </p>
               </motion.div>
@@ -106,60 +118,60 @@ const Portfolio = () => {
                   className="group relative magnetic-card"
                 >
                   <div className="relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl overflow-hidden h-full hover:border-neon-orange/50 transition-all duration-300 hover-glow">
+                    {/* Top preview area */}
                     <div className="relative h-48 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      {getCategoryIcon(project.category)}
-                    </div>
-                    <div className="absolute inset-0 bg-dark-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                      <a
-                        href={project.link}
-                        className="w-12 h-12 bg-neon-orange rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-                      >
-                        <ExternalLink className="w-5 h-5 text-white" />
-                      </a>
-                      <a
-                        href={project.github}
-                        className="w-12 h-12 bg-dark-700 border border-white/20 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-                      >
-                        <Github className="w-5 h-5 text-white" />
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Project Info */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-neon-purple">
+                      <div className="absolute inset-0 flex items-center justify-center">
                         {getCategoryIcon(project.category)}
-                      </span>
-                      <span className="text-xs text-gray-400 uppercase tracking-wider">
-                        {project.category}
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-2 text-white group-hover:text-neon-orange transition-colors">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-gray-400 text-sm mb-4">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="text-xs px-3 py-1 bg-dark-700 border border-neon-purple/30 rounded-full text-gray-300"
+                      </div>
+                      <div className="absolute inset-0 bg-dark-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                        <a
+                          href={project.link}
+                          className="w-12 h-12 bg-neon-orange rounded-full flex items-center justify-center hover:scale-110 transition-transform"
                         >
-                          {tag}
-                        </span>
-                      ))}
+                          <ExternalLink className="w-5 h-5 text-white" />
+                        </a>
+                        <a
+                          href={project.github}
+                          className="w-12 h-12 bg-dark-700 border border-white/20 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                        >
+                          <Github className="w-5 h-5 text-white" />
+                        </a>
+                      </div>
                     </div>
+
+                    {/* Project Info */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-neon-purple">
+                          {getCategoryIcon(project.category)}
+                        </span>
+                        <span className="text-xs text-gray-400 uppercase tracking-wider">
+                          {project.category}
+                        </span>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold mb-2 text-white group-hover:text-neon-orange transition-colors">
+                        {project.title}
+                      </h3>
+                      
+                      <p className="text-gray-400 text-sm mb-4">
+                        {project.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags?.map((tag, tagIndex) => (
+                          <span
+                            key={tagIndex}
+                            className="text-xs px-3 py-1 bg-dark-700 border border-neon-purple/30 rounded-full text-gray-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
               ))}
             </div>
           )}
@@ -194,4 +206,3 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
-
