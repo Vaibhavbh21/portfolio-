@@ -5,10 +5,35 @@ import { Briefcase, Calendar, MapPin, TrendingUp, Target, Lightbulb, Database } 
 const About = () => {
   const experiences = [
     {
+      company: "SGFinance",
+      position: "Founding Engineer",
+      location: "Delhi",
+      period: "January 2026 – Present",
+      achievements: [
+        "Led end-to-end technical development and assumed full platform ownership to ensure robust digital infrastructure",
+        "Conducted advanced data analysis and predictive modeling using Machine Learning and AI to drive business insights",
+        "Built and deployed scalable technology solutions tailored to support rapid business growth and operational efficiency",
+        "Managed technical operations and implemented AI-based models to enhance daily client service delivery"
+      ]
+    },
+    {
+      company: "Tulsi Finserve Private Limited",
+      position: "Data Analyst",
+      location: "Delhi",
+      period: "August 2025 – December 2025",
+      achievements: [
+        "Involved in data analysis, data interpretation, and model development related to financial markets",
+        "Built analytical and predictive models aimed at analyzing stock market trends and predicting stock price movements using historical and real-time data",
+        "Demonstrated strong working knowledge of Data Analytics, Machine Learning, and Artificial Intelligence",
+        "Executed data handling, statistical analysis, and model evaluation techniques to support financial insights",
+        "Implemented data-driven solutions in the financial domain with a proactive approach to learning and problem-solving"
+      ]
+    },
+    {
       company: "LG Electronics India Pvt Ltd",
       position: "Data Analyst Intern",
       location: "Noida, Uttar Pradesh",
-      period: "Feb 2025 – Present",
+      period: "Feb 2025 – August 2025",
       achievements: [
         "Conducted 30+ data audits and assessments for web-based applications, ensuring alignment with organizational KPIs and industry standards",
         "Reviewed and analyzed 10,000+ lines of application data and business logic to identify inconsistencies, trends, and actionable insights",
@@ -90,28 +115,28 @@ const About = () => {
               </div>
               <h2 className="text-3xl font-bold text-white">My Story</h2>
             </div>
-            
+
             <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
               <p>
-                Hi, I'm <span className="text-neon-orange font-semibold">Vaibhav Bhardwaj</span>, and I have a deep love for data. 
+                Hi, I'm <span className="text-neon-orange font-semibold">Vaibhav Bhardwaj</span>, and I have a deep love for data.
                 Every dataset tells a story, and I'm passionate about uncovering those hidden narratives that drive business decisions.
               </p>
-              
+
               <p>
-                As a Data Analyst, I specialize in transforming complex data into actionable insights. With hands-on experience 
-                in SQL, Python, Power BI, and Excel, I've helped organizations optimize their operations, identify trends, and 
+                As a Data Analyst, I specialize in transforming complex data into actionable insights. With hands-on experience
+                in SQL, Python, Power BI, and Excel, I've helped organizations optimize their operations, identify trends, and
                 make data-driven decisions.
               </p>
-              
+
               <p>
-                Currently, I'm <span className="text-neon-purple font-semibold">deep diving into Data Science, Artificial Intelligence, and Machine Learning</span>. 
-                The world of AI/ML fascinates me, and I'm constantly learning new techniques and methodologies to expand my expertise. 
+                Currently, I'm <span className="text-neon-purple font-semibold">deep diving into Data Science, Artificial Intelligence, and Machine Learning</span>.
+                The world of AI/ML fascinates me, and I'm constantly learning new techniques and methodologies to expand my expertise.
                 From predictive modeling to neural networks, I'm exploring every aspect of this exciting field.
               </p>
-              
+
               <p>
-                My journey in data analytics has been marked by continuous learning and growth. Each project teaches me something new, 
-                and every dataset challenges me to think differently. I believe in the power of data to solve real-world problems, 
+                My journey in data analytics has been marked by continuous learning and growth. Each project teaches me something new,
+                and every dataset challenges me to think differently. I believe in the power of data to solve real-world problems,
                 and I'm committed to using my skills to make a meaningful impact.
               </p>
             </div>
@@ -151,7 +176,7 @@ const About = () => {
                 {index < experiences.length - 1 && (
                   <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-neon-purple to-neon-orange opacity-30"></div>
                 )}
-                
+
                 <div className="relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl p-8 hover:border-neon-orange/50 transition-all duration-300">
                   <div className="flex flex-col md:flex-row md:items-start gap-6">
                     {/* Timeline Dot */}
@@ -274,7 +299,7 @@ const About = () => {
                   </div>
                 </div>
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  Continuously expanding my knowledge in AI/ML to build more advanced analytical models and predictive solutions. 
+                  Continuously expanding my knowledge in AI/ML to build more advanced analytical models and predictive solutions.
                   Exploring neural networks, natural language processing, and advanced machine learning algorithms.
                 </p>
               </div>

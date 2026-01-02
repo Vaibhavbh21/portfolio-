@@ -28,3 +28,4 @@ const MouseParallax = ({ children, intensity = 0.5, className = '' }) => {
 };
 
 export default MouseParallax;
+

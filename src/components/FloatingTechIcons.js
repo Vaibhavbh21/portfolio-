@@ -59,3 +59,4 @@ const FloatingTechIcons = () => {
 };
 
 export default FloatingTechIcons;
+

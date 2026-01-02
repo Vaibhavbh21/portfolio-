@@ -30,3 +30,4 @@ export const useMagneticEffect = (strength = 0.3) => {
 
   return ref;
 };
+

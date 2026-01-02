@@ -19,15 +19,15 @@ const Navbar = () => {
     { path: '/', label: 'HOME' },
     { path: '/about', label: 'ABOUT' },
     { path: '/portfolio', label: 'PORTFOLIO' },
+    { path: '/certifications', label: 'CERTIFICATIONS' },
     { path: '/blog', label: 'BLOG' },
   ];
 
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-dark-900/90 backdrop-blur-md border-b border-neon-purple/20' : 'bg-transparent'
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-dark-900/90 backdrop-blur-md border-b border-neon-purple/20' : 'bg-transparent'
+      }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo/Name */}
@@ -43,11 +43,10 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative font-semibold text-sm uppercase tracking-wider transition-colors duration-200 ${
-                  isActive(item.path)
-                    ? 'text-neon-orange'
-                    : 'text-white hover:text-neon-purple'
-                }`}
+                className={`relative font-semibold text-sm uppercase tracking-wider transition-colors duration-200 ${isActive(item.path)
+                  ? 'text-neon-orange'
+                  : 'text-white hover:text-neon-purple'
+                  }`}
               >
                 {item.label}
                 {isActive(item.path) && (
@@ -76,11 +75,10 @@ const Navbar = () => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block font-semibold text-sm uppercase tracking-wider ${
-                  isActive(item.path)
-                    ? 'text-neon-orange'
-                    : 'text-white hover:text-neon-purple'
-                }`}
+                className={`block font-semibold text-sm uppercase tracking-wider ${isActive(item.path)
+                  ? 'text-neon-orange'
+                  : 'text-white hover:text-neon-purple'
+                  }`}
               >
                 {item.label}
               </Link>

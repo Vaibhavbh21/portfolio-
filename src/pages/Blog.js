@@ -1,9 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, ArrowRight, TrendingUp, BookOpen, Users } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, TrendingUp, BookOpen, Users, ExternalLink } from 'lucide-react';
 
 const Blog = () => {
   const blogPosts = [
+    {
+      id: 1,
+      title: "AI Will Not Kill Jobs, It Will Kill Outdated Skills",
+      excerpt: "Let’s be real for a second. Our generation already knows what AI can do. We use it almost every day...",
+      date: "Jan 02, 2026",
+      readTime: "5 min read",
+      category: "Career",
+      link: "/blog/ai-will-not-kill-jobs",
+      featured: true
+    },
+    {
+      id: 2,
+      title: "Why Python Feels Easy in Data Analytics",
+      excerpt: "A lot of people say the same thing when they start learning Python. 'Python is easy.' But beginners usually feel the opposite...",
+      date: "Jan 15, 2026",
+      readTime: "7 min read",
+      category: "Skills",
+      link: "/blog/python-data-analytics",
+      featured: false
+    }
   ];
 
   const featuredPosts = blogPosts.filter(post => post.featured) || [];
@@ -50,7 +70,7 @@ const Blog = () => {
               <TrendingUp className="w-6 h-6 text-neon-orange" />
               Featured Articles
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-8">
               {featuredPosts.map((post, index) => (
                 <motion.article
@@ -60,55 +80,56 @@ const Blog = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300"
                 >
-                  <div className="relative h-64 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      {getCategoryIcon(post.category)}
-                    </div>
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-neon-orange text-white text-xs font-semibold rounded-full">
-                        FEATURED
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="text-neon-purple">
+                  <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-full">
+                    <div className="relative h-64 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
+                      <div className="absolute inset-0 flex items-center justify-center">
                         {getCategoryIcon(post.category)}
-                      </span>
-                      <span className="text-xs text-gray-400 uppercase tracking-wider">
-                        {post.category}
-                      </span>
-                    </div>
-
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-neon-orange transition-colors">
-                      {post.title}
-                    </h3>
-
-                    <p className="text-gray-400 mb-4">
-                      {post.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between text-sm text-gray-500">
-                      <div className="flex items-center gap-4">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          {post.date}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          {post.readTime}
+                      </div>
+                      <div className="absolute top-4 left-4">
+                        <span className="px-3 py-1 bg-neon-orange text-white text-xs font-semibold rounded-full">
+                          FEATURED
                         </span>
                       </div>
-                      <a
-                        href={`#post-${post.id}`}
-                        className="text-neon-orange hover:text-neon-purple flex items-center gap-1 group-hover:gap-2 transition-all"
-                      >
-                        Read More
-                        <ArrowRight className="w-4 h-4" />
-                      </a>
                     </div>
-                  </div>
+
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-neon-purple">
+                          {getCategoryIcon(post.category)}
+                        </span>
+                        <span className="text-xs text-gray-400 uppercase tracking-wider">
+                          {post.category}
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-neon-orange transition-colors">
+                        {post.title}
+                      </h3>
+
+                      <p className="text-gray-400 mb-4">
+                        {post.excerpt}
+                      </p>
+
+                      <div className="flex items-center justify-between text-sm text-gray-500">
+                        <div className="flex items-center gap-4">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            {post.date}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-4 h-4" />
+                            {post.readTime}
+                          </span>
+                        </div>
+                        <span
+                          className="text-neon-orange hover:text-neon-purple flex items-center gap-1 group-hover:gap-2 transition-all cursor-pointer"
+                        >
+                          Read More
+                          <ExternalLink className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
+                  </a>
                 </motion.article>
               ))}
             </div>
@@ -130,7 +151,7 @@ const Blog = () => {
                 <BookOpen className="w-16 h-16 text-neon-purple mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-4">Blog Posts Coming Soon</h3>
                 <p className="text-gray-400 mb-6">
-                  I'm working on writing blog posts about my journey in data analytics, data science, and AI/ML. 
+                  I'm working on writing blog posts about my journey in data analytics, data science, and AI/ML.
                   Check back soon for insights, tutorials, and learnings!
                 </p>
               </motion.div>
@@ -144,52 +165,53 @@ const Blog = () => {
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {regularPosts.map((post, index) => (
-              <motion.article
-                key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 h-full flex flex-col"
-              >
-                <div className="relative h-48 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    {getCategoryIcon(post.category)}
-                  </div>
-                </div>
+                  <motion.article
+                    key={post.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="group relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 h-full flex flex-col"
+                  >
+                    <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-full">
+                      <div className="relative h-48 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          {getCategoryIcon(post.category)}
+                        </div>
+                      </div>
 
-                <div className="p-6 flex-1 flex flex-col">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-neon-purple">
-                      {getCategoryIcon(post.category)}
-                    </span>
-                    <span className="text-xs text-gray-400 uppercase tracking-wider">
-                      {post.category}
-                    </span>
-                  </div>
+                      <div className="p-6 flex-1 flex flex-col">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="text-neon-purple">
+                            {getCategoryIcon(post.category)}
+                          </span>
+                          <span className="text-xs text-gray-400 uppercase tracking-wider">
+                            {post.category}
+                          </span>
+                        </div>
 
-                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-neon-orange transition-colors">
-                    {post.title}
-                  </h3>
+                        <h3 className="text-xl font-bold mb-3 text-white group-hover:text-neon-orange transition-colors">
+                          {post.title}
+                        </h3>
 
-                  <p className="text-gray-400 mb-4 flex-1">
-                    {post.excerpt}
-                  </p>
+                        <p className="text-gray-400 mb-4 flex-1">
+                          {post.excerpt}
+                        </p>
 
-                  <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-neon-purple/20">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {post.date}
-                    </span>
-                    <a
-                      href={`#post-${post.id}`}
-                      className="text-neon-orange hover:text-neon-purple flex items-center gap-1 group-hover:gap-2 transition-all"
-                    >
-                      Read
-                      <ArrowRight className="w-4 h-4" />
+                        <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-neon-purple/20">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            {post.date}
+                          </span>
+                          <span
+                            className="text-neon-orange hover:text-neon-purple flex items-center gap-1 group-hover:gap-2 transition-all"
+                          >
+                            Read
+                            <ArrowRight className="w-4 h-4" />
+                          </span>
+                        </div>
+                      </div>
                     </a>
-                  </div>
-                </div>
-              </motion.article>
+                  </motion.article>
                 ))}
               </div>
             </>

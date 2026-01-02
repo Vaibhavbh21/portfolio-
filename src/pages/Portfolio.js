@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Filter, Code2, BarChart3, Database, TrendingUp } from 'lucide-react';
+import { ExternalLink, Github, Filter, Code2, BarChart3, Database, TrendingUp, Sparkles } from 'lucide-react';
 
 const Portfolio = () => {
   const [filter, setFilter] = useState('all');
 
   const projects = [
-    // yahan baad me apne projects add karna
-    // example:
-    // {
-    //   id: 1,
-    //   title: 'Sales Dashboard',
-    //   description: 'Built an interactive dashboard in Power BI',
-    //   category: 'Data Analytics',
-    //   tags: ['Power BI', 'SQL', 'Excel'],
-    //   link: 'https://your-live-link.com',
-    //   github: 'https://github.com/your-repo'
-    // }
+    {
+      id: 1,
+      title: 'AI-Powered Website Development (Generative AI)',
+      description: 'Designed and developed using Generative AI tools for UI design, content creation, and code generation, with manual prompt engineering, customization, integration, and deployment handled by the developer.',
+      category: 'Generative AI',
+      tags: ['Generative AI', 'React', 'Tailwind CSS', 'Prompt Engineering', 'AI-Assisted Dev'],
+      link: 'https://sgfinance4u.com',
+      github: '#', // Placeholder or remove if not applicable, keeping for structure
+      featured: true
+    }
   ];
 
-  const categories = ['all'];
+  const categories = ['all', 'Generative AI'];
 
   const filteredProjects =
     filter === 'all'
@@ -32,6 +31,8 @@ const Portfolio = () => {
         return <BarChart3 className="w-5 h-5" />;
       case 'Machine Learning':
         return <TrendingUp className="w-5 h-5" />;
+      case 'Generative AI':
+        return <Sparkles className="w-5 h-5" />;
       case 'Business Intelligence':
         return <Database className="w-5 h-5" />;
       default:
@@ -73,11 +74,10 @@ const Portfolio = () => {
                 <button
                   key={category}
                   onClick={() => setFilter(category)}
-                  className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 ${
-                    filter === category
-                      ? 'bg-gradient-to-r from-neon-purple to-neon-orange text-white'
-                      : 'bg-dark-800 border border-neon-purple/30 text-gray-300 hover:border-neon-orange/50'
-                  }`}
+                  className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 ${filter === category
+                    ? 'bg-gradient-to-r from-neon-purple to-neon-orange text-white'
+                    : 'bg-dark-800 border border-neon-purple/30 text-gray-300 hover:border-neon-orange/50'
+                    }`}
                 >
                   <Filter className="w-4 h-4" />
                   {category.toUpperCase()}
@@ -102,7 +102,7 @@ const Portfolio = () => {
                 <Code2 className="w-16 h-16 text-neon-purple mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-white mb-4">Projects Coming Soon</h3>
                 <p className="text-gray-400 mb-6">
-                  I&apos;m working on adding my portfolio projects here. Check back soon to see my latest work in data analytics, 
+                  I&apos;m working on adding my portfolio projects here. Check back soon to see my latest work in data analytics,
                   data science, and AI/ML!
                 </p>
               </motion.div>
@@ -117,60 +117,65 @@ const Portfolio = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="group relative magnetic-card"
                 >
-                  <div className="relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl overflow-hidden h-full hover:border-neon-orange/50 transition-all duration-300 hover-glow">
-                    {/* Top preview area */}
-                    <div className="relative h-48 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        {getCategoryIcon(project.category)}
-                      </div>
-                      <div className="absolute inset-0 bg-dark-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                        <a
-                          href={project.link}
-                          className="w-12 h-12 bg-neon-orange rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-                        >
-                          <ExternalLink className="w-5 h-5 text-white" />
-                        </a>
-                        <a
-                          href={project.github}
-                          className="w-12 h-12 bg-dark-700 border border-white/20 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
-                        >
-                          <Github className="w-5 h-5 text-white" />
-                        </a>
-                      </div>
-                    </div>
-
-                    {/* Project Info */}
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-neon-purple">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full cursor-pointer"
+                  >
+                    <div className="relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl overflow-hidden h-full hover:border-neon-orange/50 transition-all duration-300 hover-glow shadow-md hover:shadow-lg hover:shadow-neon-purple/10">
+                      {/* Top preview area */}
+                      <div className="relative h-48 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
+                        <div className="absolute inset-0 flex items-center justify-center">
                           {getCategoryIcon(project.category)}
-                        </span>
-                        <span className="text-xs text-gray-400 uppercase tracking-wider">
-                          {project.category}
-                        </span>
-                      </div>
-                      
-                      <h3 className="text-xl font-bold mb-2 text-white group-hover:text-neon-orange transition-colors">
-                        {project.title}
-                      </h3>
-                      
-                      <p className="text-gray-400 text-sm mb-4">
-                        {project.description}
-                      </p>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags?.map((tag, tagIndex) => (
-                          <span
-                            key={tagIndex}
-                            className="text-xs px-3 py-1 bg-dark-700 border border-neon-purple/30 rounded-full text-gray-300"
+                        </div>
+                        <div className="absolute inset-0 bg-dark-900/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                          <div
+                            className="w-12 h-12 bg-neon-orange rounded-full flex items-center justify-center hover:scale-110 transition-transform"
                           >
-                            {tag}
+                            <ExternalLink className="w-5 h-5 text-white" />
+                          </div>
+                          <div
+                            className="w-12 h-12 bg-dark-700 border border-white/20 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+                          >
+                            <Github className="w-5 h-5 text-white" />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Project Info */}
+                      <div className="p-6">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-neon-purple">
+                            {getCategoryIcon(project.category)}
                           </span>
-                        ))}
+                          <span className="text-xs text-gray-400 uppercase tracking-wider">
+                            {project.category}
+                          </span>
+                        </div>
+
+                        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-neon-orange transition-colors">
+                          {project.title}
+                        </h3>
+
+                        <p className="text-gray-400 text-sm mb-4">
+                          {project.description}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags?.map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="text-xs px-3 py-1 bg-dark-700 border border-neon-purple/30 rounded-full text-gray-300"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </motion.div>
               ))}
             </div>
