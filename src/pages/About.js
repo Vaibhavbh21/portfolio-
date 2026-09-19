@@ -1,68 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar, MapPin, TrendingUp, Target, Lightbulb, Database } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Target, Bot, Sparkles, Cpu, Layers, Database, Terminal, Workflow, Search, Zap, GitBranch } from 'lucide-react';
 
 const About = () => {
   const experiences = [
     {
       company: "SGFinance",
-      position: "Founding Engineer",
-      location: "Delhi",
-      period: "January 2026 – Present",
+      position: "AI Engineer",
+      location: "Remote",
+      period: "Aug 2025 – Present",
       achievements: [
-        "Led end-to-end technical development and assumed full platform ownership to ensure robust digital infrastructure",
-        "Conducted advanced data analysis and predictive modeling using Machine Learning and AI to drive business insights",
-        "Built and deployed scalable technology solutions tailored to support rapid business growth and operational efficiency",
-        "Managed technical operations and implemented AI-based models to enhance daily client service delivery"
-      ]
-    },
-    {
-      company: "Tulsi Finserve Private Limited",
-      position: "Data Analyst",
-      location: "Delhi",
-      period: "August 2025 – December 2025",
-      achievements: [
-        "Involved in data analysis, data interpretation, and model development related to financial markets",
-        "Built analytical and predictive models aimed at analyzing stock market trends and predicting stock price movements using historical and real-time data",
-        "Demonstrated strong working knowledge of Data Analytics, Machine Learning, and Artificial Intelligence",
-        "Executed data handling, statistical analysis, and model evaluation techniques to support financial insights",
-        "Implemented data-driven solutions in the financial domain with a proactive approach to learning and problem-solving"
+        "Built an AI-powered WhatsApp lead responder using LangChain, RAG, and Selenium, achieving sub-5 second response time and automating 100+ daily customer interactions.",
+        "Developed and deployed the company website end-to-end, handling backend, frontend, and deployment independently using modern web technologies.",
+        "Built a production-grade PDF RAG system using hybrid retrieval (semantic vector search + BM25), enabling high-accuracy document Q&A and scalable knowledge extraction from unstructured PDFs."
       ]
     },
     {
       company: "LG Electronics India Pvt Ltd",
-      position: "Data Analyst Intern",
+      position: "Data Science Intern",
       location: "Noida, Uttar Pradesh",
-      period: "Feb 2025 – August 2025",
+      period: "Feb 2025 – Aug 2025",
       achievements: [
-        "Conducted 30+ data audits and assessments for web-based applications, ensuring alignment with organizational KPIs and industry standards",
-        "Reviewed and analyzed 10,000+ lines of application data and business logic to identify inconsistencies, trends, and actionable insights",
-        "Performed exploratory data analysis across 100+ datasets using tools like SQL, Excel, and Power BI, identifying over 90% of critical data issues",
-        "Recommended 20+ data-driven optimization strategies to improve reporting accuracy and reduce data redundancy"
-      ]
-    },
-    {
-      company: "Vincentio Tech Solutions Private Limited",
-      position: "Data Analyst Trainee",
-      location: "Faridabad, Haryana",
-      period: "Jul 2023 – Aug 2023",
-      achievements: [
-        "Developed and optimized 5+ analytical models to streamline reporting and support key business decisions",
-        "Performed data cleaning, transformation, and statistical analysis on various datasets using Python and Excel",
-        "Utilized 10+ data analysis tools and libraries (Pandas, NumPy, matplotlib) to visualize insights and communicate findings",
-        "Simulated real-world data scenarios to test forecasting models and validate business assumptions"
-      ]
-    },
-    {
-      company: "IRADesign And Solutions Pvt. Ltd",
-      position: "Data Operations Intern",
-      location: "Faridabad, Haryana",
-      period: "Oct 2022 – Nov 2022",
-      achievements: [
-        "Configured and managed 10+ data pipelines and reporting setups to ensure 99.9% uptime and real-time analytics",
-        "Leveraged Linux automation to resolve 100+ system-level data processing issues, improving efficiency by 30%",
-        "Deployed and monitored 5+ sandbox environments to test data integrity, pipeline performance, and dashboard accuracy",
-        "Improved system-level monitoring and data reliability, reducing downtime by 40%"
+        "Developed a Selenium-based automation system to scrape Amazon product data and recommend optimal products using rating analysis and review sentiment insights.",
+        "Built ML-powered data pipelines and AI-driven workflows using Python, Flask, and SQL, processing 5,000+ records with approximately 30% reduction in manual reporting time.",
+        "Developed REST APIs for AI services enabling real-time data processing; applied feature engineering to support LLM-based systems."
       ]
     },
     {
@@ -71,81 +32,201 @@ const About = () => {
       location: "Timarpur, Delhi",
       period: "Dec 2019 – Jan 2020",
       achievements: [
-        "Engineered tailored solutions to align with project needs, boosting efficiency and performance",
-        "Assessed technical specs for optimal hardware/software selection, maximizing system effectiveness and cost savings",
-        "Managed end-to-end project execution, optimizing task allocation, timelines, and resource utilization, resulting in 20% faster project delivery and improved operational efficiency",
-        "Compiled detailed documentation covering workflows, technical blueprints, and user guides for long-term maintainability"
+        "Analyzed structured technical data using Excel and SQL; prepared reports to support research projects."
       ]
     }
   ];
 
+  const skillCategories = [
+    {
+      title: "AI & Generative AI",
+      icon: <Sparkles className="w-5 h-5 text-ai-cyan" />,
+      skills: ['Generative AI', 'Large Language Models', 'Prompt Engineering', 'NLP', 'LLM Application Development'],
+      colSpan: 'lg:col-span-2'
+    },
+    {
+      title: "AI Frameworks",
+      icon: <Workflow className="w-5 h-5 text-ai-indigo" />,
+      skills: ['LangChain', 'LangGraph', 'OpenAI API'],
+      colSpan: 'lg:col-span-1'
+    },
+    {
+      title: "RAG & Retrieval",
+      icon: <Search className="w-5 h-5 text-ai-violet" />,
+      skills: ['RAG', 'FAISS', 'Embeddings', 'Vector Search', 'Hybrid Search', 'BM25', 'Document Retrieval', 'Contextual Compression'],
+      colSpan: 'lg:col-span-2'
+    },
+    {
+      title: "AI Agents",
+      icon: <Bot className="w-5 h-5 text-ai-emerald" />,
+      skills: ['AI Agents', 'Agentic Workflows', 'Tool Calling', 'Multi-Agent Systems'],
+      colSpan: 'lg:col-span-1'
+    },
+    {
+      title: "Backend & APIs",
+      icon: <Layers className="w-5 h-5 text-ai-sky" />,
+      skills: ['Python', 'FastAPI', 'Flask', 'REST APIs'],
+      colSpan: 'lg:col-span-1'
+    },
+    {
+      title: "Automation",
+      icon: <Zap className="w-5 h-5 text-amber-400" />,
+      skills: ['Selenium', 'Browser Automation', 'Workflow Automation'],
+      colSpan: 'lg:col-span-1'
+    },
+    {
+      title: "Data & Databases",
+      icon: <Database className="w-5 h-5 text-blue-400" />,
+      skills: ['SQL', 'PostgreSQL', 'Pandas', 'NumPy'],
+      colSpan: 'lg:col-span-1'
+    },
+    {
+      title: "Development",
+      icon: <GitBranch className="w-5 h-5 text-purple-400" />,
+      skills: ['Git', 'GitHub', 'Docker', 'Linux'],
+      colSpan: 'lg:col-span-3'
+    }
+  ];
+
+  const learningTopics = [
+    'Advanced Agentic AI',
+    'Multi-Agent Systems',
+    'Advanced RAG Architectures',
+    'AI System Design',
+    'Production LLM Applications',
+    'Model Context Protocol (MCP)',
+    'AI Voice Agents',
+    'LLM Evaluation',
+    'AI Application Deployment'
+  ];
+
   return (
-    <div className="min-h-screen pt-20 pb-20">
+    <div className="min-h-screen pt-24 pb-20 bg-dark-900 text-gray-100">
+      
       {/* Header */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ai-indigo/10 border border-ai-indigo/30 text-ai-cyan text-xs font-semibold mb-4">
+              <Bot className="w-3.5 h-3.5 text-ai-cyan" />
+              <span>AI ENGINEER PROFILE</span>
+            </div>
             <h1 className="section-title mb-4">
               ABOUT ME
             </h1>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Data Analyst passionate about transforming raw data into meaningful insights
+            <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
+              Turning modern AI capabilities into practical, reliable, and high-impact software solutions.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Personal Story Section */}
-      <section className="px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="max-w-4xl mx-auto">
+      {/* AI Engineer Story Section */}
+      <section id="about" className="px-4 sm:px-6 lg:px-8 mb-20">
+        <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-2xl p-8 md:p-12"
+            className="bento-card p-8 md:p-12 border-white/10"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-neon-purple to-neon-orange rounded-full flex items-center justify-center">
-                <Lightbulb className="w-8 h-8 text-white" />
+            <div className="flex items-center gap-4 mb-6 border-b border-white/10 pb-5">
+              <div className="w-12 h-12 bg-gradient-to-tr from-ai-indigo to-ai-cyan rounded-xl flex items-center justify-center shadow-lg shadow-ai-indigo/20">
+                <Bot className="w-6 h-6 text-white" />
               </div>
-              <h2 className="text-3xl font-bold text-white">My Story</h2>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white">Engineering Practical AI Systems</h2>
+                <p className="text-ai-cyan text-xs font-mono uppercase tracking-wider">End-to-End LLM & Automation Stack</p>
+              </div>
             </div>
 
-            <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
+            <div className="space-y-5 text-gray-300 text-base md:text-lg leading-relaxed">
               <p>
-                Hi, I'm <span className="text-neon-orange font-semibold">Vaibhav Bhardwaj</span>, and I have a deep love for data.
-                Every dataset tells a story, and I'm passionate about uncovering those hidden narratives that drive business decisions.
+                I am an <span className="text-white font-semibold">AI Engineer</span> focused on turning modern AI capabilities into practical software solutions. My work involves building LLM-powered applications, RAG pipelines, AI agents, automation workflows, and intelligent systems that solve real-world business problems.
               </p>
 
               <p>
-                As a Data Analyst, I specialize in transforming complex data into actionable insights. With hands-on experience
-                in SQL, Python, Power BI, and Excel, I've helped organizations optimize their operations, identify trends, and
-                make data-driven decisions.
+                I work across the AI application stack, from data and document processing to retrieval, prompting, agent workflows, API development, and deployment. Using tools like <span className="text-ai-cyan font-semibold">Python, LangChain, LangGraph, OpenAI APIs, FastAPI, FAISS, and vector search</span>, I engineer robust systems that perform contextual retrieval, automated reasoning, and background task execution.
               </p>
 
               <p>
-                Currently, I'm <span className="text-neon-purple font-semibold">deep diving into Data Science, Artificial Intelligence, and Machine Learning</span>.
-                The world of AI/ML fascinates me, and I'm constantly learning new techniques and methodologies to expand my expertise.
-                From predictive modeling to neural networks, I'm exploring every aspect of this exciting field.
-              </p>
-
-              <p>
-                My journey in data analytics has been marked by continuous learning and growth. Each project teaches me something new,
-                and every dataset challenges me to think differently. I believe in the power of data to solve real-world problems,
-                and I'm committed to using my skills to make a meaningful impact.
+                Whether it's deploying document intelligence systems for PDF analysis, building context-aware WhatsApp customer responders, or automating complex browser workflows with Selenium and LLMs, my priority is writing clean, maintainable code that delivers practical business value.
               </p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section className="px-4 sm:px-6 lg:px-8 mb-20">
+      {/* Experience Timeline Section */}
+      <section id="experience" className="px-4 sm:px-6 lg:px-8 mb-24 border-t border-white/5 pt-20">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ai-indigo/10 border border-ai-indigo/20 text-ai-cyan text-xs font-semibold mb-3">
+              <Briefcase className="w-3.5 h-3.5" />
+              <span>TRACK RECORD</span>
+            </div>
+            <h2 className="section-title mb-4">
+              WORK EXPERIENCE
+            </h2>
+            <p className="text-gray-400 text-base md:text-lg">
+              Engineering experience in software development, AI model integration, and workflow automation
+            </p>
+          </motion.div>
+
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={exp.company}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bento-card p-8 relative overflow-hidden"
+              >
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6 border-b border-white/10 pb-4">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-1">{exp.position}</h3>
+                    <h4 className="text-lg font-semibold text-ai-cyan">{exp.company}</h4>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-gray-400">
+                    <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1 rounded-md border border-white/10">
+                      <Calendar className="w-3.5 h-3.5 text-ai-indigo" />
+                      {exp.period}
+                    </span>
+                    <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1 rounded-md border border-white/10">
+                      <MapPin className="w-3.5 h-3.5 text-ai-cyan" />
+                      {exp.location}
+                    </span>
+                  </div>
+                </div>
+
+                <ul className="space-y-3">
+                  {exp.achievements.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-gray-300 text-sm md:text-base leading-relaxed">
+                      <Target className="w-4 h-4 text-ai-indigo flex-shrink-0 mt-1" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Bento Skills Section */}
+      <section id="skills" className="px-4 sm:px-6 lg:px-8 mb-24 border-t border-white/5 pt-20">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -154,161 +235,79 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ai-indigo/10 border border-ai-indigo/20 text-ai-cyan text-xs font-semibold mb-3">
+              <Cpu className="w-3.5 h-3.5" />
+              <span>STACK</span>
+            </div>
             <h2 className="section-title mb-4">
-              WORK EXPERIENCE
+              TECHNICAL SKILLS
             </h2>
-            <p className="text-gray-400 text-lg">
-              My professional journey in data analytics
+            <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
+              Organized AI engineering toolkit across generative models, agentic frameworks, retrieval pipelines, and backend APIs.
             </p>
           </motion.div>
 
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
+          {/* Bento Grid Skills */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {skillCategories.map((cat, idx) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                key={cat.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="relative"
+                transition={{ duration: 0.5, delay: idx * 0.06 }}
+                className={`bento-card p-6 ${cat.colSpan}`}
               >
-                {/* Timeline Line */}
-                {index < experiences.length - 1 && (
-                  <div className="absolute left-8 top-20 bottom-0 w-0.5 bg-gradient-to-b from-neon-purple to-neon-orange opacity-30"></div>
-                )}
-
-                <div className="relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl p-8 hover:border-neon-orange/50 transition-all duration-300">
-                  <div className="flex flex-col md:flex-row md:items-start gap-6">
-                    {/* Timeline Dot */}
-                    <div className="relative flex-shrink-0 w-16 md:w-20">
-                      <div className="absolute left-0 top-2 w-16 h-16 bg-gradient-to-br from-neon-purple to-neon-orange rounded-full flex items-center justify-center z-10 border-4 border-dark-900">
-                        <Briefcase className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 min-w-0 pl-0 md:pl-4">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                        <div className="w-full min-w-0">
-                          <h3 className="text-2xl font-bold text-white mb-1 break-words">{exp.position}</h3>
-                          <h4 className="text-xl text-neon-orange font-semibold mb-2 break-words whitespace-normal">{exp.company}</h4>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-400">
-                        <span className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-neon-purple" />
-                          {exp.period}
-                        </span>
-                        <span className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-neon-orange" />
-                          {exp.location}
-                        </span>
-                      </div>
-
-                      <ul className="space-y-3 mt-6">
-                        {exp.achievements.map((achievement, idx) => (
-                          <li key={idx} className="flex items-start gap-3 text-gray-300">
-                            <Target className="w-5 h-5 text-neon-purple flex-shrink-0 mt-0.5" />
-                            <span>{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                <div className="flex items-center gap-3 mb-4 pb-3 border-b border-white/10">
+                  <div className="p-2 bg-dark-950 rounded-xl border border-white/10">
+                    {cat.icon}
                   </div>
+                  <h3 className="text-lg font-bold text-white">{cat.title}</h3>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-3 py-1 bg-dark-950/80 border border-white/10 rounded-lg text-xs md:text-sm font-medium text-gray-300 hover:text-white hover:border-ai-cyan transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Skills & Learning Section */}
-      <section className="px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+          {/* Currently Learning Section */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="bento-card p-8 md:p-10 border-ai-cyan/30 bg-gradient-to-br from-dark-800/80 to-dark-900"
           >
-            <h2 className="section-title mb-4">
-              SKILLS & LEARNING
-            </h2>
+            <div className="flex items-center gap-3 mb-6">
+              <Terminal className="w-6 h-6 text-ai-cyan" />
+              <h3 className="text-2xl font-bold text-white">Currently Learning</h3>
+            </div>
+            <div className="flex flex-wrap gap-2.5">
+              {learningTopics.map((topic) => (
+                <span
+                  key={topic}
+                  className="px-4 py-2 bg-dark-950/90 border border-ai-cyan/30 rounded-xl text-xs md:text-sm font-semibold text-ai-cyan shadow-sm"
+                >
+                  {topic}
+                </span>
+              ))}
+            </div>
           </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Technical Skills */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl p-8"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <Database className="w-8 h-8 text-neon-purple" />
-                <h3 className="text-2xl font-bold text-white">Technical Skills</h3>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-white font-semibold mb-2">Programming & Tools</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Python', 'SQL', 'Excel', 'Power BI', 'Pandas', 'NumPy', 'Matplotlib'].map((skill) => (
-                      <span key={skill} className="px-3 py-1 bg-dark-700 border border-neon-purple/30 rounded-full text-sm text-gray-300">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-white font-semibold mb-2">Data Analysis</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Data Cleaning', 'Statistical Analysis', 'Data Visualization', 'Exploratory Data Analysis'].map((skill) => (
-                      <span key={skill} className="px-3 py-1 bg-dark-700 border border-neon-orange/30 rounded-full text-sm text-gray-300">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Currently Learning */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-dark-800/50 backdrop-blur-sm border border-neon-orange/20 rounded-xl p-8"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <TrendingUp className="w-8 h-8 text-neon-orange" />
-                <h3 className="text-2xl font-bold text-white">Currently Learning</h3>
-              </div>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-white font-semibold mb-2">Deep Diving Into</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Data Science', 'Machine Learning', 'Artificial Intelligence', 'Deep Learning'].map((skill) => (
-                      <span key={skill} className="px-3 py-1 bg-dark-700 border border-neon-pink/30 rounded-full text-sm text-gray-300">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  Continuously expanding my knowledge in AI/ML to build more advanced analytical models and predictive solutions.
-                  Exploring neural networks, natural language processing, and advanced machine learning algorithms.
-                </p>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </section>
+
     </div>
   );
 };
 
 export default About;
+
+

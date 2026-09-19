@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, ArrowRight, TrendingUp, BookOpen, Users, ExternalLink } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, TrendingUp, BookOpen, Sparkles } from 'lucide-react';
 
 const Blog = () => {
   const blogPosts = [
     {
       id: 1,
       title: "AI Will Not Kill Jobs, It Will Kill Outdated Skills",
-      excerpt: "Let’s be real for a second. Our generation already knows what AI can do. We use it almost every day...",
+      excerpt: "Why staying ahead in Generative AI, prompt engineering, and automated agent workflows is the ultimate skill multiplier...",
       date: "Jan 02, 2026",
       readTime: "5 min read",
       category: "Career",
@@ -16,12 +16,22 @@ const Blog = () => {
     },
     {
       id: 2,
-      title: "Why Python Feels Easy in Data Analytics",
-      excerpt: "A lot of people say the same thing when they start learning Python. 'Python is easy.' But beginners usually feel the opposite...",
+      title: "Why Python Rules AI & LLM Systems Engineering",
+      excerpt: "From LangChain orchestration to Async FastAPI endpoints and FAISS vector indices—why Python is the foundation of GenAI...",
       date: "Jan 15, 2026",
       readTime: "7 min read",
       category: "Skills",
       link: "/blog/python-data-analytics",
+      featured: false
+    },
+    {
+      id: 3,
+      title: "Building Production RAG Pipelines: Lessons Learned",
+      excerpt: "Unstructured document chunking, hybrid keyword & dense retrieval, context reranking, and preventing LLM hallucinations...",
+      date: "Jan 18, 2026",
+      readTime: "8 min read",
+      category: "Skills",
+      link: "/blog/clean-messy-dataset",
       featured: false
     }
   ];
@@ -32,102 +42,89 @@ const Blog = () => {
   const getCategoryIcon = (category) => {
     switch (category) {
       case 'Career':
-        return <TrendingUp className="w-5 h-5" />;
+        return <TrendingUp className="w-5 h-5 text-ai-cyan" />;
       case 'Skills':
-        return <BookOpen className="w-5 h-5" />;
-      case 'Portfolio':
-        return <Users className="w-5 h-5" />;
+        return <BookOpen className="w-5 h-5 text-ai-indigo" />;
       default:
-        return <BookOpen className="w-5 h-5" />;
+        return <BookOpen className="w-5 h-5 text-ai-violet" />;
     }
   };
 
   return (
-    <div className="min-h-screen pt-20 pb-20">
+    <div className="min-h-screen pt-24 pb-20 bg-dark-900 text-gray-100">
       {/* Header */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ai-indigo/10 border border-ai-indigo/30 text-ai-cyan text-xs font-semibold mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-ai-cyan" />
+              <span>THOUGHTS & ARTICLES</span>
+            </div>
             <h1 className="section-title mb-4">
-              BLOG
+              BLOG & INSIGHTS
             </h1>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Insights, tips, and strategies to help you build your six-figure data career
+            <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto">
+              Engineering notes, architecture breakdowns, and perspectives on Generative AI, RAG systems, and AI Agents
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Featured Posts */}
-      {featuredPosts.length > 0 ? (
-        <section className="px-4 sm:px-6 lg:px-8 mb-16">
+      {featuredPosts.length > 0 && (
+        <section className="px-4 sm:px-6 lg:px-8 mb-12">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold mb-8 text-white flex items-center gap-2">
-              <TrendingUp className="w-6 h-6 text-neon-orange" />
-              Featured Articles
+            <h2 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-ai-cyan" />
+              Featured Article
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-1 gap-6">
               {featuredPosts.map((post, index) => (
                 <motion.article
                   key={post.id}
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300"
+                  className="bento-card p-8 group hover:border-ai-cyan/40"
                 >
-                  <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-full">
-                    <div className="relative h-64 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        {getCategoryIcon(post.category)}
-                      </div>
-                      <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-neon-orange text-white text-xs font-semibold rounded-full">
-                          FEATURED
-                        </span>
-                      </div>
+                  <a href={post.link} className="block">
+                    <div className="flex flex-wrap items-center gap-3 mb-4">
+                      <span className="px-3 py-1 bg-ai-cyan/10 border border-ai-cyan/30 text-ai-cyan text-xs font-semibold rounded-full">
+                        FEATURED
+                      </span>
+                      <span className="text-xs text-gray-400 uppercase tracking-wider font-mono">
+                        {post.category}
+                      </span>
                     </div>
 
-                    <div className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="text-neon-purple">
-                          {getCategoryIcon(post.category)}
+                    <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-ai-cyan transition-colors">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-gray-400 text-base leading-relaxed mb-6 max-w-4xl">
+                      {post.excerpt}
+                    </p>
+
+                    <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-gray-500 pt-4 border-t border-white/10">
+                      <div className="flex items-center gap-4">
+                        <span className="flex items-center gap-1.5">
+                          <Calendar className="w-4 h-4 text-ai-indigo" />
+                          {post.date}
                         </span>
-                        <span className="text-xs text-gray-400 uppercase tracking-wider">
-                          {post.category}
-                        </span>
-                      </div>
-
-                      <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-neon-orange transition-colors">
-                        {post.title}
-                      </h3>
-
-                      <p className="text-gray-400 mb-4">
-                        {post.excerpt}
-                      </p>
-
-                      <div className="flex items-center justify-between text-sm text-gray-500">
-                        <div className="flex items-center gap-4">
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {post.date}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
-                            {post.readTime}
-                          </span>
-                        </div>
-                        <span
-                          className="text-neon-orange hover:text-neon-purple flex items-center gap-1 group-hover:gap-2 transition-all cursor-pointer"
-                        >
-                          Read More
-                          <ExternalLink className="w-4 h-4" />
+                        <span className="flex items-center gap-1.5">
+                          <Clock className="w-4 h-4 text-ai-indigo" />
+                          {post.readTime}
                         </span>
                       </div>
+                      <span className="text-ai-cyan font-medium flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                        Read Full Article
+                        <ArrowRight className="w-4 h-4" />
+                      </span>
                     </div>
                   </a>
                 </motion.article>
@@ -135,117 +132,57 @@ const Blog = () => {
             </div>
           </div>
         </section>
-      ) : null}
+      )}
 
       {/* Regular Posts */}
       <section className="px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {blogPosts.length === 0 ? (
-            <div className="text-center py-20">
-              <motion.div
+          <h2 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
+            <BookOpen className="w-5 h-5 text-ai-indigo" />
+            Latest Articles
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {regularPosts.map((post, index) => (
+              <motion.article
+                key={post.id}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl p-12 max-w-2xl mx-auto"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bento-card p-6 flex flex-col justify-between group"
               >
-                <BookOpen className="w-16 h-16 text-neon-purple mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-white mb-4">Blog Posts Coming Soon</h3>
-                <p className="text-gray-400 mb-6">
-                  I'm working on writing blog posts about my journey in data analytics, data science, and AI/ML.
-                  Check back soon for insights, tutorials, and learnings!
-                </p>
-              </motion.div>
-            </div>
-          ) : (
-            <>
-              <h2 className="text-2xl font-bold mb-8 text-white flex items-center gap-2">
-                <BookOpen className="w-6 h-6 text-neon-purple" />
-                Latest Articles
-              </h2>
+                <a href={post.link} className="block h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      {getCategoryIcon(post.category)}
+                      <span className="text-xs text-gray-400 uppercase tracking-wider font-mono">
+                        {post.category}
+                      </span>
+                    </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {regularPosts.map((post, index) => (
-                  <motion.article
-                    key={post.id}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="group relative bg-dark-800/50 backdrop-blur-sm border border-neon-purple/20 rounded-xl overflow-hidden hover:border-neon-orange/50 transition-all duration-300 h-full flex flex-col"
-                  >
-                    <a href={post.link} target="_blank" rel="noopener noreferrer" className="block h-full">
-                      <div className="relative h-48 bg-gradient-to-br from-neon-purple/20 to-neon-orange/20 overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          {getCategoryIcon(post.category)}
-                        </div>
-                      </div>
+                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-ai-cyan transition-colors">
+                      {post.title}
+                    </h3>
 
-                      <div className="p-6 flex-1 flex flex-col">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="text-neon-purple">
-                            {getCategoryIcon(post.category)}
-                          </span>
-                          <span className="text-xs text-gray-400 uppercase tracking-wider">
-                            {post.category}
-                          </span>
-                        </div>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                      {post.excerpt}
+                    </p>
+                  </div>
 
-                        <h3 className="text-xl font-bold mb-3 text-white group-hover:text-neon-orange transition-colors">
-                          {post.title}
-                        </h3>
-
-                        <p className="text-gray-400 mb-4 flex-1">
-                          {post.excerpt}
-                        </p>
-
-                        <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-neon-purple/20">
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {post.date}
-                          </span>
-                          <span
-                            className="text-neon-orange hover:text-neon-purple flex items-center gap-1 group-hover:gap-2 transition-all"
-                          >
-                            Read
-                            <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </div>
-                      </div>
-                    </a>
-                  </motion.article>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </section>
-
-      {/* Newsletter CTA */}
-      <section className="mt-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative bg-gradient-to-r from-neon-purple/20 via-neon-orange/20 to-neon-pink/20 backdrop-blur-sm border border-neon-purple/30 rounded-2xl p-12 text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold font-display mb-4 text-white">
-              Stay Connected
-            </h2>
-            <p className="text-gray-300 mb-8">
-              Get updates about my latest projects and blog posts on data analytics and AI/ML.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-dark-800 border border-neon-purple/30 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-neon-orange"
-              />
-              <button className="btn-primary">
-                Subscribe
-              </button>
-            </div>
-          </motion.div>
+                  <div className="flex items-center justify-between text-xs text-gray-500 pt-4 border-t border-white/10">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3.5 h-3.5 text-ai-indigo" />
+                      {post.date}
+                    </span>
+                    <span className="text-ai-cyan font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      Read
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </a>
+              </motion.article>
+            ))}
+          </div>
         </div>
       </section>
     </div>
@@ -253,4 +190,5 @@ const Blog = () => {
 };
 
 export default Blog;
+
 

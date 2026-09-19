@@ -28,13 +28,13 @@ const ParticleBackground = () => {
         this.size = Math.random() * 3 + 1;
         this.speedX = Math.random() * 2 - 1;
         this.speedY = Math.random() * 2 - 1;
-        this.color = Math.random() > 0.5 ? '#a855f7' : '#fb923c';
-        this.opacity = Math.random() * 0.5 + 0.2;
+        this.color = Math.random() > 0.5 ? '#6366f1' : '#06b6d4';
+        this.opacity = Math.random() * 0.4 + 0.1;
       }
 
       update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
+        this.x += this.speedX * 0.6;
+        this.y += this.speedY * 0.6;
 
         if (this.x > canvas.width) this.x = 0;
         if (this.x < 0) this.x = canvas.width;
@@ -68,7 +68,7 @@ const ParticleBackground = () => {
     }
 
     // Create particles
-    const particleCount = 80;
+    const particleCount = 70;
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
@@ -82,7 +82,7 @@ const ParticleBackground = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 120) {
-            ctx.strokeStyle = `rgba(168, 85, 247, ${0.2 * (1 - distance / 120)})`;
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * (1 - distance / 120)})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);

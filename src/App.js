@@ -2,40 +2,37 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Certifications from './pages/Certifications';
-import Blog from './pages/Blog';
 import Footer from './components/Footer';
+import NeuralBackground from './components/NeuralBackground';
 import CustomCursor from './components/CustomCursor';
-import ParticleBackground from './components/ParticleBackground';
-import AiJobsPost from './pages/blog-posts/AiJobsPost';
-import PythonDataAnalyticsPost from './pages/blog-posts/PythonDataAnalyticsPost';
+import Preloader from './components/Preloader';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-dark-900 text-white relative overflow-hidden">
-        {/* Advanced Background Effects */}
-        <ParticleBackground />
-        <div className="fixed inset-0 cyber-pattern opacity-30 pointer-events-none z-0"></div>
-        <div className="fixed inset-0 cyber-grid opacity-20 pointer-events-none z-0"></div>
+      <div className="min-h-screen bg-black text-white relative overflow-hidden selection:bg-white/20 selection:text-white">
+        
+        {/* Short 1.2s Entrance Preloader */}
+        <Preloader />
 
-        {/* Custom Cursor */}
+        {/* Custom Desktop Cursor Effect */}
         <CustomCursor />
 
+        {/* Connected Nodes Background Visual */}
+        <NeuralBackground />
+
+        {/* Minimal Floating Header */}
         <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/ai-will-not-kill-jobs" element={<AiJobsPost />} />
-          <Route path="/blog/python-data-analytics" element={<PythonDataAnalyticsPost />} />
-        </Routes>
+        {/* Main Content */}
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </main>
 
+        {/* Minimal Footer */}
         <Footer />
       </div>
     </Router>
@@ -43,4 +40,3 @@ function App() {
 }
 
 export default App;
-

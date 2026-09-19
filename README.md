@@ -1,26 +1,28 @@
-# 🚀 Futuristic Cyberpunk Portfolio Website
+# 🤖 Professional AI Engineer Portfolio Website - Vaibhav Bhardwaj
 
-A stunning, modern portfolio website with a dark cyberpunk aesthetic featuring neon purple/orange colors, smooth animations, and a futuristic design.
+A premium, modern portfolio website designed for an **AI Engineer** with a dark obsidian aesthetic (`#05070b`), subtle ambient lighting, Bento-grid layouts, and glassmorphism.
 
 ## ✨ Features
 
-- **Dark Cyberpunk Theme** - Purple, orange, and pink neon colors with glowing effects
-- **Fully Responsive** - Works perfectly on mobile, tablet, and desktop
-- **Smooth Animations** - Powered by Framer Motion for beautiful transitions
-- **Modern UI/UX** - Clean, professional design with glassmorphism effects
-- **Three Main Sections**:
-  - **Home** - Hero section with animated background and CTA
-  - **Portfolio** - Project showcase with filtering
-  - **Blog** - Blog posts with featured articles
+- **Dark Bento AI Theme** - Obsidian dark backgrounds (`#07090e`), Indigo, Violet, and Cyan ambient lighting
+- **Bento Grid Architecture** - Modern rounded card system with 1px translucent borders
+- **Fully Responsive** - Flawless layout adaptation across desktop, tablet, and mobile
+- **Smooth Micro-Animations** - Powered by Framer Motion & Lucide React
+- **Floating Glassmorphic Navbar** - Rounded backdrop blur navigation
+- **Sections**:
+  - **Home**: Hero section with AI Agent Core graphic and 8 Bento Expertise cards
+  - **About**: AI Engineer narrative, Experience timeline, 8 Bento Skill categories, and Currently Learning cards
+  - **Portfolio**: 5 numbered Bento project cards with category filters
+  - **Blog**: AI engineering and technology articles
+  - **Contact**: Direct WhatsApp and Email contact CTA
 
 ## 🎨 Design Elements
 
-- Dark gradient backgrounds (#0a0a0a, #1a1a1a)
-- Neon purple (#a855f7), orange (#fb923c), and pink (#ec4899) accents
-- Cyber grid patterns and animated backgrounds
-- Glowing text and border effects
+- Obsidian dark charcoal backgrounds (`#05070b`, `#07090e`, `#0f1420`)
+- Subtle Indigo (`#6366f1`), Cyan (`#06b6d4`), and Violet (`#8b5cf6`) accents
+- Thin 1px subtle borders (`border-white/10`)
 - Glassmorphism cards with backdrop blur
-- Smooth hover animations and transitions
+- Clean typography and generous spacing
 
 ## 🛠️ Tech Stack
 

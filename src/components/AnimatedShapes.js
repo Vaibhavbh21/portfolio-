@@ -13,9 +13,9 @@ const AnimatedShapes = () => {
   }, []);
 
   const shapes = [
-    { size: 100, color: 'from-neon-purple/10', position: { top: '20%', left: '15%' }, rotate: 45 },
-    { size: 150, color: 'from-neon-orange/10', position: { top: '60%', right: '20%' }, rotate: -30 },
-    { size: 80, color: 'from-neon-pink/10', position: { bottom: '30%', left: '25%' }, rotate: 60 },
+    { size: 100, color: 'from-ai-indigo/10', position: { top: '20%', left: '15%' }, rotate: 45 },
+    { size: 150, color: 'from-ai-cyan/10', position: { top: '60%', right: '20%' }, rotate: -30 },
+    { size: 80, color: 'from-ai-violet/10', position: { bottom: '30%', left: '25%' }, rotate: 60 },
   ];
 
   return (
@@ -23,7 +23,7 @@ const AnimatedShapes = () => {
       {shapes.map((shape, index) => (
         <motion.div
           key={index}
-          className={`absolute w-${shape.size} h-${shape.size} bg-gradient-to-br ${shape.color} to-transparent rounded-lg border border-neon-purple/20 blur-sm`}
+          className={`absolute w-${shape.size} h-${shape.size} bg-gradient-to-br ${shape.color} to-transparent rounded-lg border border-ai-indigo/15 blur-sm`}
           style={{
             ...shape.position,
             width: shape.size,
@@ -43,7 +43,7 @@ const AnimatedShapes = () => {
       {[...Array(3)].map((_, i) => (
         <motion.div
           key={`line-${i}`}
-          className="absolute bg-gradient-to-r from-transparent via-neon-purple/20 to-transparent"
+          className="absolute bg-gradient-to-r from-transparent via-ai-indigo/15 to-transparent"
           style={{
             height: '1px',
             width: '200px',
@@ -52,7 +52,7 @@ const AnimatedShapes = () => {
             transform: `rotate(${i * 15}deg)`,
           }}
           animate={{
-            opacity: [0.2, 0.5, 0.2],
+            opacity: [0.2, 0.4, 0.2],
             x: [0, 50, 0],
           }}
           transition={{

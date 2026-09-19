@@ -1,77 +1,78 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
+  const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const updateCursor = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+    // Only run on non-touch devices
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const onMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      if (!isVisible) setIsVisible(true);
     };
 
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
+    const onMouseOver = (e) => {
+      const target = e.target;
+      if (
+        target.tagName === 'BUTTON' ||
+        target.tagName === 'A' ||
+        target.closest('button') ||
+        target.closest('a') ||
+        target.closest('.bento-card')
+      ) {
+        setIsHovered(true);
+      } else {
+        setIsHovered(false);
+      }
+    };
 
-    // Track mouse movement
-    window.addEventListener('mousemove', updateCursor);
+    const onMouseLeave = () => {
+      setIsVisible(false);
+    };
 
-    // Check for hoverable elements
-    const hoverables = document.querySelectorAll('a, button, .hoverable');
-    hoverables.forEach(el => {
-      el.addEventListener('mouseenter', handleMouseEnter);
-      el.addEventListener('mouseleave', handleMouseLeave);
-    });
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseover', onMouseOver);
+    document.addEventListener('mouseleave', onMouseLeave);
 
     return () => {
-      window.removeEventListener('mousemove', updateCursor);
-      hoverables.forEach(el => {
-        el.removeEventListener('mouseenter', handleMouseEnter);
-        el.removeEventListener('mouseleave', handleMouseLeave);
-      });
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseover', onMouseOver);
+      document.removeEventListener('mouseleave', onMouseLeave);
     };
-  }, []);
+  }, [isVisible]);
+
+  if (!isVisible) return null;
 
   return (
-    <>
-      {/* Main Cursor */}
-      <div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] mix-blend-difference"
-        style={{
-          transform: `translate(${position.x - 12}px, ${position.y - 12}px)`,
-          transition: 'transform 0.1s ease-out',
+    <div className="hidden lg:block pointer-events-none fixed inset-0 z-50 overflow-hidden">
+      {/* Small Glowing Center Dot */}
+      <motion.div
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-white rounded-full pointer-events-none mix-blend-difference"
+        animate={{
+          x: mousePosition.x - 5,
+          y: mousePosition.y - 5,
+          scale: isHovered ? 1.5 : 1,
         }}
-      >
-        <div className={`w-6 h-6 rounded-full border-2 border-white transition-all duration-300 ${
-          isHovering ? 'scale-150 bg-white/20' : 'scale-100'
-        }`} />
-      </div>
+        transition={{ type: 'spring', stiffness: 800, damping: 35, mass: 0.1 }}
+      />
 
-      {/* Cursor Follower */}
-      <div
-        className="fixed top-0 left-0 pointer-events-none z-[9998]"
-        style={{
-          transform: `translate(${position.x - 20}px, ${position.y - 20}px)`,
-          transition: 'transform 0.3s ease-out',
+      {/* Trailing Aura Glow Ring */}
+      <motion.div
+        className="fixed top-0 left-0 w-9 h-9 rounded-full border border-indigo-400/40 bg-indigo-500/10 pointer-events-none"
+        animate={{
+          x: mousePosition.x - 18,
+          y: mousePosition.y - 18,
+          scale: isHovered ? 1.8 : 1,
+          borderColor: isHovered ? 'rgba(168, 85, 247, 0.6)' : 'rgba(99, 102, 241, 0.3)',
         }}
-      >
-        <div className={`w-10 h-10 rounded-full bg-neon-purple/30 blur-sm transition-all duration-500 ${
-          isHovering ? 'scale-200 opacity-50' : 'scale-100 opacity-30'
-        }`} />
-      </div>
-
-      {/* Cursor Trails */}
-      <div
-        className="fixed top-0 left-0 pointer-events-none z-[9997]"
-        style={{
-          transform: `translate(${position.x - 4}px, ${position.y - 4}px)`,
-          transition: 'transform 0.5s ease-out',
-        }}
-      >
-        <div className="w-2 h-2 rounded-full bg-neon-orange/40 blur-xs" />
-      </div>
-    </>
+        transition={{ type: 'spring', stiffness: 250, damping: 25, mass: 0.2 }}
+      />
+    </div>
   );
 };
 
 export default CustomCursor;
-

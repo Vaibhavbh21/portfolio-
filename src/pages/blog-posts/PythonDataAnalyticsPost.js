@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, ArrowLeft, Share2, Code2, Database, BarChart2, Brain, Layers } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Share2, Code2, BarChart2, Brain, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PythonDataAnalyticsPost = () => {
